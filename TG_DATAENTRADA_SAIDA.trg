@@ -1,0 +1,12 @@
+CREATE OR REPLACE TRIGGER TG_DATAENTRADA_SAIDA
+       BEFORE INSERT OR UPDATE ON SAIDAS FOR EACH ROW
+
+BEGIN
+              IF :NEW.DATASAIDA IS NULL THEN
+                SELECT SYSDATE
+                INTO :NEW.DATASAIDA
+                FROM DUAL;
+              END IF;
+
+        END;
+/
