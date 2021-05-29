@@ -8,8 +8,7 @@ BEGIN
             into  
             v
             FROM estoque
-            WHERE id_medicamentos = vid
-            and exists (select 1 from estoque where id_medicamentos = vid);
+            WHERE id_medicamentos = vid;
             
             if v <> 0 then
             UPDATE ESTOQUE SET
